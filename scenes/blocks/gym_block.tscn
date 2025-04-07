@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct5n43b1owwhk"]
+
+[ext_resource type="Script" uid="uid://nck4qyw8liqr" path="res://scripts/blocks/gym_block.gd" id="1_26uks"]
+[ext_resource type="Texture2D" uid="uid://dk6q1hwao2o57" path="res://sprites/gym_block.png" id="2_f17mu"]
+
+[sub_resource type="Gradient" id="Gradient_4k0dw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ghdp"]
+gradient = SubResource("Gradient_4k0dw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.825688, 0.169725)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uro7g"]
+closed = false
+polygon = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16, -32, -16)
+
+[node name="GymBlock" type="Node2D"]
+script = ExtResource("1_26uks")
+metadata/_custom_type_script = "uid://dxuolhj13tn3q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_f17mu")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(-12, 0)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_2ghdp")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="Light"]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_2ghdp")
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="Light"]
+position = Vector2(12, 0)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_2ghdp")
+texture_scale = 0.5
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light"]
+occluder = SubResource("OccluderPolygon2D_uro7g")

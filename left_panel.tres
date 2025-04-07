@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dixoaskmywcg2"]
+
+[ext_resource type="FontFile" uid="uid://deviunfevgwgs" path="res://PeaberryBase.ttf" id="1_cmmbo"]
+
+[resource]
+font = ExtResource("1_cmmbo")
+font_color = Color(0.752941, 0.819608, 0.8, 1)

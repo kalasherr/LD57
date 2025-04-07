@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://gaqgj181qn1f"]
+
+[ext_resource type="Script" uid="uid://1dp4ooubo0nu" path="res://scripts/blocks/connector_block.gd" id="1_wj4yt"]
+[ext_resource type="Texture2D" uid="uid://bme8tyjhs5pti" path="res://sprites/connector_block.png" id="2_eqv80"]
+
+[node name="ConnectorBlock" type="Node2D"]
+script = ExtResource("1_wj4yt")
+metadata/_custom_type_script = "uid://dxuolhj13tn3q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_eqv80")

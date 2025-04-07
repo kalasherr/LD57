@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b21j4h24cofyg"
+path="res://.godot/imported/flip_button_bitmap.png-149b57ce1782b174f613b4e87576e5d3.res"
+
+[deps]
+
+source_file="res://sprites/flip_button_bitmap.png"
+dest_files=["res://.godot/imported/flip_button_bitmap.png-149b57ce1782b174f613b4e87576e5d3.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

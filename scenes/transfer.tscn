@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnimnqi6dafqi"]
+
+[ext_resource type="FontFile" uid="uid://deviunfevgwgs" path="res://PeaberryBase.ttf" id="1_of0es"]
+[ext_resource type="Script" uid="uid://bdrpyg4lv4duy" path="res://scripts/transfer.gd" id="1_wwn2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wwn2q"]
+font = ExtResource("1_of0es")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ep7m"]
+font = ExtResource("1_of0es")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_a0t31"]
+font = ExtResource("1_of0es")
+font_size = 48
+
+[node name="Transfer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_wwn2q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2668.0
+offset_top = -922.0
+offset_right = 5062.0
+offset_bottom = 2345.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1196.5
+offset_top = -711.5
+offset_right = 722.5
+offset_bottom = 295.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Don't make your workers starve"
+label_settings = SubResource("LabelSettings_wwn2q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -503.5
+offset_right = 960.0
+offset_bottom = 503.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made by Kalasherr in 48 hours 
+for Ludum Dare 57 
+Thank you for playing"
+label_settings = SubResource("LabelSettings_8ep7m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -503.5
+offset_right = 960.0
+offset_bottom = 116.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_a0t31")
+horizontal_alignment = 1
+vertical_alignment = 1

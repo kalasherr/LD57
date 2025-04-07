@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmerdjmey86hn"]
+
+[ext_resource type="Texture2D" uid="uid://c84uxwneiqs4d" path="res://sprites/lock.png" id="1_s433i"]
+[ext_resource type="Script" uid="uid://b322ia6u075xx" path="res://scripts/blocks/lock.gd" id="2_40mgl"]
+[ext_resource type="AudioStream" uid="uid://2okkblijks0q" path="res://audio/lock.wav" id="3_40mgl"]
+
+[node name="Lock" type="TextureRect"]
+texture = ExtResource("1_s433i")
+script = ExtResource("2_40mgl")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_40mgl")
+volume_db = 5.0

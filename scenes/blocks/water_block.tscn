@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b72m3s6o6ahc5"]
+
+[ext_resource type="Script" uid="uid://tadvq2d4pjbj" path="res://scripts/blocks/water_block.gd" id="1_jfmdy"]
+[ext_resource type="Texture2D" uid="uid://nysufhvd1cb0" path="res://sprites/water_block.png" id="2_751ml"]
+
+[sub_resource type="Gradient" id="Gradient_751ml"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t5r23"]
+gradient = SubResource("Gradient_751ml")
+fill = 1
+fill_from = Vector2(0.509174, 0.408257)
+fill_to = Vector2(0.545872, 0.756881)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pxqos"]
+closed = false
+polygon = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16, -32, -16)
+
+[node name="WaterBlock" type="Node2D"]
+script = ExtResource("1_jfmdy")
+metadata/_custom_type_script = "uid://dxuolhj13tn3q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_751ml")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(-0.109112, -14.5125)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_t5r23")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Light"]
+position = Vector2(-0.109112, 14.3968)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_t5r23")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light"]
+occluder = SubResource("OccluderPolygon2D_pxqos")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu403su5vtq8n"]
+
+[ext_resource type="Script" uid="uid://bhc54gppn1m7f" path="res://scripts/blocks/forge_block.gd" id="1_x24a0"]
+[ext_resource type="Texture2D" uid="uid://can2h4c7413v2" path="res://sprites/forge_block.png" id="2_oogl2"]
+
+[sub_resource type="Gradient" id="Gradient_qraru"]
+offsets = PackedFloat32Array(0, 0.987013)
+colors = PackedColorArray(0.86, 0.497653, 0.1806, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yvl08"]
+gradient = SubResource("Gradient_qraru")
+fill = 1
+fill_from = Vector2(0.504587, 0.431193)
+fill_to = Vector2(0.761468, 0.243119)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mdimm"]
+closed = false
+polygon = PackedVector2Array(-32, -16, -32, 16, 32, 16, 32, -16, -32, -16)
+
+[node name="ForgeBlock" type="Node2D"]
+script = ExtResource("1_x24a0")
+metadata/_custom_type_script = "uid://dxuolhj13tn3q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_oogl2")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(-18, 7)
+scale = Vector2(0.679688, 0.716797)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_yvl08")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light"]
+occluder = SubResource("OccluderPolygon2D_mdimm")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Light"]
+position = Vector2(18, -7)
+scale = Vector2(0.65625, 0.605469)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_yvl08")

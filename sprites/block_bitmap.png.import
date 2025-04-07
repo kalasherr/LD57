@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dpyywqi8i0768"
+path="res://.godot/imported/block_bitmap.png-403c459f7f69a0a10173499a167ee080.res"
+
+[deps]
+
+source_file="res://sprites/block_bitmap.png"
+dest_files=["res://.godot/imported/block_bitmap.png-403c459f7f69a0a10173499a167ee080.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx5ehcb2mdtne"]
+
+[ext_resource type="Script" uid="uid://bipy84uabqru0" path="res://scripts/blocks/market_block.gd" id="1_f6geu"]
+[ext_resource type="Texture2D" uid="uid://dbyyfyusf028d" path="res://sprites/market_block.png" id="2_sidm3"]
+[ext_resource type="OccluderPolygon2D" uid="uid://cjwv4syfndg57" path="res://scenes/blocks/occluder_polygon_2d.tres" id="3_sidm3"]
+
+[sub_resource type="Gradient" id="Gradient_qps4j"]
+offsets = PackedFloat32Array(0.00649351, 0.5, 1)
+colors = PackedColorArray(0.162338, 0.162338, 0.162338, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpmne"]
+gradient = SubResource("Gradient_qps4j")
+fill_from = Vector2(1, 1)
+
+[node name="MarketBlock" type="Node2D"]
+script = ExtResource("1_f6geu")
+metadata/_custom_type_script = "uid://dxuolhj13tn3q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_sidm3")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light"]
+occluder = ExtResource("3_sidm3")
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(0.499999, -0.499999)
+scale = Vector2(0.953125, 0.515625)
+texture = SubResource("GradientTexture2D_dpmne")

@@ -1,0 +1,405 @@
+[gd_scene load_steps=14 format=3 uid="uid://bm8g62djlpqjx"]
+
+[ext_resource type="Texture2D" uid="uid://cjguv0dkl8my0" path="res://sprites/buy_menu.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://di4wxd7g1hvox" path="res://scripts/hud.gd" id="1_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://bwe6qnu2d1m3f" path="res://sprites/resources.png" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://8lftfibf8qde" path="res://sprites/block_border.png" id="3_6fi6k"]
+[ext_resource type="FontFile" uid="uid://deviunfevgwgs" path="res://PeaberryBase.ttf" id="4_047uy"]
+[ext_resource type="BitMap" uid="uid://dpyywqi8i0768" path="res://sprites/block_bitmap.png" id="4_uo2fv"]
+[ext_resource type="PackedScene" uid="uid://cmerdjmey86hn" path="res://scenes/lock.tscn" id="7_5pdws"]
+[ext_resource type="Texture2D" uid="uid://cgnwpkrkob102" path="res://sprites/flip_button.png" id="8_0m4u7"]
+[ext_resource type="PackedScene" uid="uid://ctg1shmii6my0" path="res://scenes/left_panel.tscn" id="8_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://bnf7gngu1fivf" path="res://sprites/flip_button_hovered.png" id="9_apjy4"]
+[ext_resource type="BitMap" uid="uid://b21j4h24cofyg" path="res://sprites/flip_button_bitmap.png" id="10_5n1hp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5pdws"]
+font = ExtResource("4_047uy")
+font_color = Color(0.752941, 0.819608, 0.8, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_047uy"]
+font = ExtResource("4_047uy")
+font_color = Color(0.752941, 0.819608, 0.8, 1)
+
+[node name="HUD" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1007.0
+script = ExtResource("1_uo2fv")
+
+[node name="Shop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_right = 196.0
+offset_bottom = 648.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+texture = ExtResource("1_ahhtf")
+
+[node name="Resources" type="TextureRect" parent="Shop"]
+layout_mode = 0
+offset_left = -64.0
+offset_bottom = 128.0
+texture = ExtResource("2_oo0fn")
+
+[node name="Label" type="Label" parent="Shop/Resources"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 9.0
+offset_right = 62.0
+offset_bottom = 32.0
+text = "0"
+label_settings = SubResource("LabelSettings_5pdws")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Shop/Resources"]
+layout_mode = 0
+offset_left = 24.5
+offset_top = 30.5
+offset_right = 61.5
+offset_bottom = 53.5
+text = "0"
+label_settings = SubResource("LabelSettings_5pdws")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Shop/Resources"]
+layout_mode = 0
+offset_left = 24.5
+offset_top = 53.5
+offset_right = 61.5
+offset_bottom = 76.5
+text = "0"
+label_settings = SubResource("LabelSettings_5pdws")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Shop/Resources"]
+layout_mode = 0
+offset_left = 24.5
+offset_top = 78.0
+offset_right = 61.5
+offset_bottom = 101.0
+text = "0"
+label_settings = SubResource("LabelSettings_5pdws")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Shop/Resources"]
+layout_mode = 0
+offset_left = 24.5
+offset_top = 101.0
+offset_right = 61.5
+offset_bottom = 124.0
+text = "0"
+label_settings = SubResource("LabelSettings_5pdws")
+horizontal_alignment = 1
+
+[node name="NeededResources" type="Control" parent="Shop"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 77.5
+offset_top = 50.0
+offset_right = 117.5
+offset_bottom = 73.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label2" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 162.5
+offset_top = 50.0
+offset_right = 202.5
+offset_bottom = 73.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label3" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 77.5
+offset_top = 105.0
+offset_right = 117.5
+offset_bottom = 128.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label4" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 143.5
+offset_top = 105.0
+offset_right = 183.5
+offset_bottom = 128.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label5" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 105.0
+offset_right = 218.0
+offset_bottom = 128.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label6" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 160.5
+offset_right = 100.0
+offset_bottom = 183.5
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label7" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 160.5
+offset_right = 133.0
+offset_bottom = 183.5
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label8" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 160.5
+offset_right = 185.0
+offset_bottom = 183.5
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label9" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 160.5
+offset_right = 218.0
+offset_bottom = 183.5
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label10" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 219.0
+offset_right = 100.0
+offset_bottom = 242.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label11" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 219.0
+offset_right = 133.0
+offset_bottom = 242.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label12" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 219.0
+offset_right = 185.0
+offset_bottom = 242.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label13" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 219.0
+offset_right = 218.0
+offset_bottom = 242.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label14" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 281.0
+offset_right = 142.0
+offset_bottom = 304.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Label15" type="Label" parent="Shop/NeededResources"]
+layout_mode = 0
+offset_left = 134.5
+offset_top = 281.0
+offset_right = 174.5
+offset_bottom = 304.0
+text = "0"
+label_settings = SubResource("LabelSettings_047uy")
+
+[node name="Buttons" type="Control" parent="Shop"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 12.0
+offset_right = 111.0
+offset_bottom = 46.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton2" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 12.0
+offset_right = 196.0
+offset_bottom = 46.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton3" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 45.5
+offset_top = 67.0
+offset_right = 111.5
+offset_bottom = 101.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton4" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 67.0
+offset_right = 196.0
+offset_bottom = 101.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton5" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 45.5
+offset_top = 123.0
+offset_right = 111.5
+offset_bottom = 157.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton6" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 123.0
+offset_right = 196.0
+offset_bottom = 157.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton7" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 45.5
+offset_top = 181.0
+offset_right = 111.5
+offset_bottom = 215.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton8" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 181.0
+offset_right = 196.0
+offset_bottom = 215.0
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="TextureButton9" type="TextureButton" parent="Shop/Buttons"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 242.5
+offset_right = 154.0
+offset_bottom = 276.5
+texture_hover = ExtResource("3_6fi6k")
+texture_click_mask = ExtResource("4_uo2fv")
+
+[node name="Locks" type="Control" parent="Shop"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lock" parent="Shop/Locks" instance=ExtResource("7_5pdws")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 67.0
+offset_right = 120.0
+offset_bottom = 127.0
+
+[node name="Lock2" parent="Shop/Locks" instance=ExtResource("7_5pdws")]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 67.0
+offset_right = 204.0
+offset_bottom = 127.0
+
+[node name="Lock3" parent="Shop/Locks" instance=ExtResource("7_5pdws")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 124.0
+offset_right = 120.0
+offset_bottom = 184.0
+
+[node name="Lock4" parent="Shop/Locks" instance=ExtResource("7_5pdws")]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 124.0
+offset_right = 204.0
+offset_bottom = 184.0
+
+[node name="Lock5" parent="Shop/Locks" instance=ExtResource("7_5pdws")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 181.0
+offset_right = 120.0
+offset_bottom = 241.0
+
+[node name="Lock6" parent="Shop/Locks" instance=ExtResource("7_5pdws")]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 181.0
+offset_right = 204.0
+offset_bottom = 241.0
+
+[node name="Lock7" parent="Shop/Locks" instance=ExtResource("7_5pdws")]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 242.5
+offset_right = 162.0
+offset_bottom = 302.5
+
+[node name="Button" type="TextureButton" parent="Shop"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 343.5
+offset_right = 182.0
+offset_bottom = 471.5
+texture_normal = ExtResource("8_0m4u7")
+texture_hover = ExtResource("9_apjy4")
+texture_click_mask = ExtResource("10_5n1hp")
+
+[node name="LeftPanel" parent="." instance=ExtResource("8_hd3ao")]
+layout_mode = 1
+offset_left = -400.0
+offset_right = -191.0
+offset_bottom = 648.0
+scale = Vector2(2, 2)
+
+[connection signal="pressed" from="Shop/Buttons/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton4" to="." method="_on_texture_button_4_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton5" to="." method="_on_texture_button_5_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton6" to="." method="_on_texture_button_6_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton7" to="." method="_on_texture_button_7_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton8" to="." method="_on_texture_button_8_pressed"]
+[connection signal="pressed" from="Shop/Buttons/TextureButton9" to="." method="_on_texture_button_9_pressed"]
+[connection signal="pressed" from="Shop/Button" to="." method="_on_button_pressed"]

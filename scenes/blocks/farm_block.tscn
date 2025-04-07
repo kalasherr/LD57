@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu80qrj2ghtvh"]
+
+[ext_resource type="Script" uid="uid://ciy3wgf46up7s" path="res://scripts/blocks/farm_block.gd" id="1_wgy7d"]
+[ext_resource type="Texture2D" uid="uid://dg4fljlk0dvkw" path="res://sprites/farm_block.png" id="2_8v2pu"]
+[ext_resource type="FontFile" uid="uid://deviunfevgwgs" path="res://PeaberryBase.ttf" id="3_77qpq"]
+
+[sub_resource type="Gradient" id="Gradient_8v2pu"]
+offsets = PackedFloat32Array(0.012987, 0.506494, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_77qpq"]
+gradient = SubResource("Gradient_8v2pu")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8v2pu"]
+closed = false
+polygon = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16, -32, -16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3l1ny"]
+font = ExtResource("3_77qpq")
+font_color = Color(0.129412, 0.231373, 0.145098, 1)
+
+[node name="FarmBlock" type="Node2D"]
+script = ExtResource("1_wgy7d")
+metadata/_custom_type_script = "uid://dxuolhj13tn3q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_8v2pu")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(-0.0910181, 0.0558391)
+rotation = 1.5708
+scale = Vector2(0.124798, 63.9813)
+energy = 2.0
+texture = SubResource("GradientTexture1D_77qpq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light"]
+occluder = SubResource("OccluderPolygon2D_8v2pu")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+pivot_offset = Vector2(32, 16)
+label_settings = SubResource("LabelSettings_3l1ny")
+horizontal_alignment = 1
+vertical_alignment = 1

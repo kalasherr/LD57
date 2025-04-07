@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxpva83ajl0u4"]
+
+[ext_resource type="Script" uid="uid://pxv0687d216h" path="res://scripts/game_scene.gd" id="1_rd3mh"]
+[ext_resource type="Script" uid="uid://cv1gsc1nuro3f" path="res://scripts/mouse_follow.gd" id="2_fx1my"]
+[ext_resource type="Texture2D" uid="uid://bbfidct4gv4tg" path="res://sprites/anchor_block.png" id="3_0o8jq"]
+[ext_resource type="PackedScene" uid="uid://6o6mxu8h8uip" path="res://scenes/blocks/anchor_block.tscn" id="4_dr247"]
+[ext_resource type="AudioStream" uid="uid://bje3fig1q8xil" path="res://audio/choose.wav" id="6_0o8jq"]
+[ext_resource type="PackedScene" uid="uid://cu80qrj2ghtvh" path="res://scenes/blocks/farm_block.tscn" id="6_fx1my"]
+[ext_resource type="AudioStream" uid="uid://dvl2sj0d50h3p" path="res://audio/cancel.wav" id="7_0o8jq"]
+
+[node name="GameObjects" type="Node2D"]
+script = ExtResource("1_rd3mh")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.360784, 0.376471, 0.501961, 1)
+
+[node name="MouseFollow" type="Node2D" parent="."]
+script = ExtResource("2_fx1my")
+
+[node name="Sprite" type="Sprite2D" parent="MouseFollow"]
+modulate = Color(0.67451, 0.760784, 1, 0.435294)
+texture = ExtResource("3_0o8jq")
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="AnchorBlock" parent="Blocks" instance=ExtResource("4_dr247")]
+
+[node name="FarmBlock" parent="Blocks" instance=ExtResource("6_fx1my")]
+position = Vector2(0, -32)
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_0o8jq")
+
+[node name="Cancel" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_0o8jq")

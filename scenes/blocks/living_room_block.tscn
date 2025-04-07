@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqu6x67kqmyog"]
+
+[ext_resource type="Script" uid="uid://dvi07ptkb7w2m" path="res://scripts/blocks/living_room.gd" id="1_1eh1o"]
+[ext_resource type="Texture2D" uid="uid://c5w2dbmgvruxn" path="res://sprites/living_room_block.png" id="2_4k0dw"]
+
+[sub_resource type="Gradient" id="Gradient_4k0dw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wo6t7"]
+gradient = SubResource("Gradient_4k0dw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.825688, 0.169725)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4k0dw"]
+closed = false
+polygon = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
+
+[node name="LivingRoomBlock" type="Node2D"]
+script = ExtResource("1_1eh1o")
+metadata/_custom_type_script = "uid://dxuolhj13tn3q"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_4k0dw")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(-16, 0)
+texture = SubResource("GradientTexture2D_wo6t7")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="Light"]
+texture = SubResource("GradientTexture2D_wo6t7")
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="Light"]
+position = Vector2(16, 0)
+texture = SubResource("GradientTexture2D_wo6t7")
+texture_scale = 0.5
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light"]
+occluder = SubResource("OccluderPolygon2D_4k0dw")

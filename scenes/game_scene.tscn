@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bj7mj1yfomdlp"]
+
+[ext_resource type="PackedScene" uid="uid://cxpva83ajl0u4" path="res://scenes/game_objects.tscn" id="3_bw6k5"]
+[ext_resource type="PackedScene" uid="uid://bm8g62djlpqjx" path="res://scenes/hud.tscn" id="3_kk2rg"]
+[ext_resource type="Script" uid="uid://bbfk2ad2jmxf3" path="res://scripts/camera.gd" id="3_ycayy"]
+[ext_resource type="Texture2D" uid="uid://ggytbr5bgxqa" path="res://sprites/background.png" id="4_bw6k5"]
+
+[sub_resource type="Gradient" id="Gradient_bw6k5"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y3j0m"]
+gradient = SubResource("Gradient_bw6k5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.830275, 0.165138)
+
+[node name="GameScene" type="Node2D"]
+process_mode = 1
+texture_filter = 1
+
+[node name="GameObjects" parent="." instance=ExtResource("3_bw6k5")]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -1300)
+zoom = Vector2(2, 2)
+limit_top = -2000
+limit_bottom = 1500
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("3_ycayy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
+
+[node name="HUD" parent="Camera/CanvasLayer" instance=ExtResource("3_kk2rg")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -503.5
+offset_right = 960.0
+offset_bottom = 503.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -100
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -2493.0
+offset_right = 499.0
+offset_bottom = 1603.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bw6k5")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background"]
+position = Vector2(654.995, 1178.55)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_y3j0m")
+texture_scale = 5.76

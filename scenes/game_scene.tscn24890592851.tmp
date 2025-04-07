@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj7mj1yfomdlp"]
+
+[ext_resource type="Script" uid="uid://pxv0687d216h" path="res://scripts/game_scene.gd" id="1_w5aja"]
+[ext_resource type="PackedScene" uid="uid://6o6mxu8h8uip" path="res://scenes/blocks/anchor_block.tscn" id="3_bw6k5"]
+[ext_resource type="Script" uid="uid://bbfk2ad2jmxf3" path="res://scripts/camera.gd" id="3_ycayy"]
+[ext_resource type="PackedScene" uid="uid://cu80qrj2ghtvh" path="res://scenes/blocks/farm_block.tscn" id="4_bw6k5"]
+[ext_resource type="PackedScene" uid="uid://bqu6x67kqmyog" path="res://scenes/blocks/living_room_block.tscn" id="5_y3j0m"]
+[ext_resource type="Script" uid="uid://cv1gsc1nuro3f" path="res://scripts/mouse_follow.gd" id="6_kk2rg"]
+[ext_resource type="Texture2D" uid="uid://bbfidct4gv4tg" path="res://sprites/anchor_block.png" id="7_b5spy"]
+
+[node name="GameScene" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_w5aja")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+script = ExtResource("3_ycayy")
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="AnchorBlock" parent="Blocks" instance=ExtResource("3_bw6k5")]
+
+[node name="FarmBlock" parent="Blocks" instance=ExtResource("4_bw6k5")]
+position = Vector2(0, -32)
+
+[node name="FarmBlock2" parent="Blocks" instance=ExtResource("4_bw6k5")]
+position = Vector2(0, -64)
+
+[node name="FarmBlock3" parent="Blocks" instance=ExtResource("4_bw6k5")]
+position = Vector2(0, 32)
+
+[node name="LivingRoomBlock" parent="Blocks" instance=ExtResource("5_y3j0m")]
+position = Vector2(64, 0)
+
+[node name="MouseFollow" type="Node2D" parent="."]
+script = ExtResource("6_kk2rg")
+
+[node name="Sprite" type="Sprite2D" parent="MouseFollow"]
+modulate = Color(0.67451, 0.760784, 1, 0.435294)
+texture = ExtResource("7_b5spy")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1rgpwpti7abf"]
+
+[ext_resource type="Script" uid="uid://b1h06m2e6yfqt" path="res://scripts/blocks/beacon_block.gd" id="1_slpsf"]
+[ext_resource type="Texture2D" uid="uid://cukthd707507b" path="res://sprites/beacon_block.png" id="2_1m2g1"]
+
+[sub_resource type="Gradient" id="Gradient_1m2g1"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ni4u5"]
+gradient = SubResource("Gradient_1m2g1")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.96789, 0.513761)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1m2g1"]
+
+[node name="BeaconBlock" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_slpsf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_1m2g1")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(-2.58494e-26, 0)
+scale = Vector2(7.1875, 3.43555)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ni4u5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light"]
+occluder = SubResource("OccluderPolygon2D_1m2g1")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Light"]
